@@ -1,4 +1,6 @@
-var nacha = require('node-nacha');
+var Entry = require('./lib/entry')
+  , Batch = require('./lib/batch')
+  , File  = require('./lib/file');
 
 nacha.configureOirigin({
 	name: 'Zipline Inc.',
