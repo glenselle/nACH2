@@ -18,13 +18,13 @@ describe('Validate', function(){
             };
 
             // The functio should throw an error since the field is required but the value is '' (empty string)
-            expect(function () { validate.validateRequiredFields(testObjectOne) }).to.throw('fieldOne is a required field but its value is empty.');
+            expect(function () { validate.validateRequiredFields(testObjectOne) }).to.throw('fieldOne is a required field but its value is: ');
 
             // Change the value to a valid alphanumeric string
             testObjectOne.fieldOne.value = 'some value';
 
             // Make sure the function doesn't throw an error.
-            expect(function () { validate.validateRequiredFields(testObjectOne) }).not.to.throw('fieldOne is a required field but its value is empty.');
+            expect(function () { validate.validateRequiredFields(testObjectOne) }).not.to.throw('fieldOne is a required field but its value is: ');
         });
     });
 
@@ -42,7 +42,7 @@ describe('Validate', function(){
             };
 
             // The expect should not throw an error since the field is not required so an empty string is okay.
-            expect(function () { validate.validateRequiredFields(testObjectOne) }).not.to.throw('fieldOne is a required field but its value is empty.');
+            expect(function () { validate.validateRequiredFields(testObjectOne) }).not.to.throw('fieldOne is a required field but its value is: ');
         });
     });
 
@@ -189,12 +189,3 @@ describe('Validate', function(){
         });
     });
 });
-
-
-// fieldTwo: {
-//     name: 'fieldTwo',
-//     width: 10,
-//     position: 7,
-//     required: true,
-//     type: 'numeric'
-// }

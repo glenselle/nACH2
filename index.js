@@ -28,4 +28,3 @@ NachaFile.addEntry({
 	amount: '32.89',
 	name: 'Glen Selle'
 });
-
