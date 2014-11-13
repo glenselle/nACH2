@@ -1,0 +1,26 @@
+{
+  "name": "nACH",
+  "description": "The main API backing Zipline",
+  "version": "0.2.1",
+  "private": true,
+  "author": "The Zipline team",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zipline/nACH.git"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/forever --minUptime 1000 --spinSleepTime 1000 index.js",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter spec --recursive"
+  },
+  "dependencies": {
+    "moment": "^2.8.3",
+    "chai": "^1.10.0"
+  },
+  "devDependencies": {
+    "mocha": "latest"
+  }
+}
