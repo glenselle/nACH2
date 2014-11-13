@@ -17,7 +17,7 @@ describe('Validate', function(){
                 }
             };
 
-            // The functio should throw an error since the field is required but the value is '' (empty string)
+            // The function should throw an error since the field is required but the value is '' (empty string)
             expect(function () { validate.validateRequiredFields(testObjectOne) }).to.throw('fieldOne is a required field but its value is: ');
 
             // Change the value to a valid alphanumeric string
