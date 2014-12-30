@@ -1,6 +1,7 @@
 var Entry = require('./lib/entry')
   , Batch = require('./lib/batch')
-  , File  = require('./lib/file');
+  , File  = require('./lib/file')
+  , _     = require('lodash');
 	
 var debitFile = new File({
  	type: 'debit',
@@ -50,4 +51,6 @@ creditHigh.addEntry(entry);
 debitFile.addBatch(creditLow);
 debitFile.addBatch(creditHigh);
 
-console.log(debitFile.generateFile());
+debitFile.generateFile(function(fileString){
+	console.log(fileString);
+});
