@@ -9,7 +9,12 @@ var debitFile = new File({
 	immediateOrigin: '123456789',
 	immediateDestinationName: 'Pulaski Bank',
 	immediateOriginName: 'Zipline Labs Inc.',
-	referenceCode: '#A000001'
+	referenceCode: '#A000001',
+	header: {
+		recordTypeCode: {
+			value: '3'
+		}
+	}
 });
 
 var entry = new Entry({
@@ -18,7 +23,8 @@ var entry = new Entry({
 	amount: '3521',
 	idNumber: 'RAj##23920rjf31',
 	individualName: 'Glen Selle',
-	discretionaryData: 'A1'
+	discretionaryData: 'A1',
+	transactionCode:'22'
 });
 
 var creditLow = new Batch({
