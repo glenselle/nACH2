@@ -4,6 +4,8 @@ var Entry = require('./lib/entry')
   , _     = require('lodash');
 var utils    = require('./lib/utils');
 
+var fs = require('fs');
+
 var routingNumber = "281073555";// Pulaski routing number
 var companyIdentification = "983597258";
 var companyName = "Zipline Labs Inc";
@@ -18,7 +20,7 @@ var debitFile = new File({
 	referenceCode: '#A000001',
 	header: {
 		recordTypeCode: {
-			value: '3'
+			value: '1'
 		}
 	}
 });
@@ -64,5 +66,10 @@ debitFile.addBatch(creditLow);
 debitFile.addBatch(creditHigh);
 
 debitFile.generateFile(function(fileString){
+	fs.writeFile('NACHA.txt', fileString, function(err) {
+		if(err) console.log(err);
+
+		console.log('saved');
+	})
 	console.log(fileString);
 });
