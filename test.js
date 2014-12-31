@@ -2,6 +2,12 @@ var Entry = require('./lib/entry')
   , Batch = require('./lib/batch')
   , File  = require('./lib/file')
   , _     = require('lodash');
+var utils    = require('./lib/utils');
+
+var routingNumber = "281073555";// Pulaski routing number
+var companyIdentification = "983597258";
+var companyName = "Zipline Labs Inc";
+var transactionDiscription = 'Zip Transfer';
 	
 var debitFile = new File({
  	type: 'debit',
@@ -28,27 +34,27 @@ var entry = new Entry({
 });
 
 var creditLow = new Batch({
-	serviceClassCode: '220', // maybe we should allow something along the lines of credit=true as a higher-level api	
-	companyName: 'Zipline',
-	standardEntryClassCode: 'WEB', // Use PPD to pull funds and WEB to push funds
-	companyIdentification: '1234567890',
-	companyEntryDescription: 'Zip Transfer',
-	companyDescriptiveDate: 'Jan 3',
-	effectiveEntryDate: new Date(),
-	originatingDFI: '281074114'
+	serviceClassCode: '220',
+	companyName: companyName,
+	standardEntryClassCode: 'WEB',
+	companyIdentification: companyIdentification,
+	companyEntryDescription: transactionDiscription,
+	companyDescriptiveDate: utils.computeBusinessDay(0).format('MMM D'),
+	effectiveEntryDate: new Date(utils.computeBusinessDay(0).format()),
+	originatingDFI: routingNumber 
 });
 
 creditLow.addEntry(entry);
 
 var creditHigh = new Batch({
-	serviceClassCode: '220', // maybe we should allow something along the lines of credit=true as a higher-level api	
-	companyName: 'Zipline',
-	standardEntryClassCode: 'WEB', // Use PPD to pull funds and WEB to push funds
-	companyIdentification: '1234567890',
-	companyEntryDescription: 'Zip Transfer',
-	companyDescriptiveDate: 'Jan 3',
-	effectiveEntryDate: new Date(),
-	originatingDFI: '281074114'
+	serviceClassCode: '220',
+	companyName: companyName,
+	standardEntryClassCode: 'WEB',
+	companyIdentification: companyIdentification, 
+	companyEntryDescription: transactionDiscription,
+	companyDescriptiveDate: utils.computeBusinessDay(3).format('MMM D'),
+	effectiveEntryDate: new Date(utils.computeBusinessDay(3).format()),
+	originatingDFI: routingNumber 
 });
 
 creditHigh.addEntry(entry);
