@@ -1,17 +1,16 @@
-var Entry = require('./lib/entry')
-  , Batch = require('./lib/batch')
-  , File  = require('./lib/file')
-  , _     = require('lodash');
-var utils    = require('./lib/utils');
+var nach = require('./index')
+var _ = require('lodash');
+var utils = require('./lib/utils');
+var moment = require('moment');
 
 var fs = require('fs');
 
-var routingNumber = "281073555";// Pulaski routing number
+var routingNumber = "281073555"; // Pulaski routing number
 var companyIdentification = "983597258";
 var companyName = "Zipline Labs Inc";
 var transactionDiscription = 'Zip Transfer';
 	
-var achFile = new File({
+var achFile = new nach.File({
 	immediateDestination: '281074114',
 	immediateOrigin: '123456789',
 	immediateDestinationName: 'Pulaski Bank',
@@ -19,7 +18,7 @@ var achFile = new File({
 	referenceCode: '#A000001',
 });
 
-var creditTransaction = new Entry({
+var creditTransaction = new nach.Entry({
 	receivingDFI: '081000210',
 	DFIAccount: '12345678901234567',
 	amount: '35.21',
@@ -29,7 +28,7 @@ var creditTransaction = new Entry({
 	transactionCode:'22'
 });
 
-var debitTransaction = new Entry({
+var debitTransaction = new nach.Entry({
 	receivingDFI: '101000019',
 	DFIAccount: '923698412584',
 	amount: '35.21',
@@ -40,48 +39,59 @@ var debitTransaction = new Entry({
 });
 
 
-var creditLow = new Batch({
+var creditLow = new nach.Batch({
 	serviceClassCode: '220',
 	companyName: companyName,
-	standardEntryClassCode: 'WEB',
+	standardEntryClassCode: 'XIO',
 	companyIdentification: companyIdentification,
 	companyEntryDescription: transactionDiscription,
-	companyDescriptiveDate: utils.computeBusinessDay(0).format('MMM D'),
-	effectiveEntryDate: new Date(utils.computeBusinessDay(0).format()),
+	companyDescriptiveDate: moment(utils.computeBusinessDay(1)).format('MMM D'),
+	effectiveEntryDate: utils.computeBusinessDay(1),
 	originatingDFI: routingNumber 
 });
 
-creditLow.addEntry(creditTransaction);
+//creditLow.addEntry(creditTransaction);
+console.log('test.js: creditLow', _.pluck(creditLow.header, 'value'))
 
-var creditHigh = new Batch({
+var creditHigh = new nach.Batch({
 	serviceClassCode: '220',
 	companyName: companyName,
 	standardEntryClassCode: 'WEB',
 	companyIdentification: companyIdentification, 
 	companyEntryDescription: transactionDiscription,
-	companyDescriptiveDate: utils.computeBusinessDay(3).format('MMM D'),
-	effectiveEntryDate: new Date(utils.computeBusinessDay(3).format()),
-	originatingDFI: routingNumber 
+	companyDescriptiveDate: moment(utils.computeBusinessDay(8)).format('MMM D'),
+	effectiveEntryDate: utils.computeBusinessDay(8),
+	originatingDFI: routingNumber
 });
+utils.guinneaPig(creditHigh);
+//creditHigh.addEntry(creditTransaction);
+console.log('test.js: creditHigh', _.pluck(creditHigh.header, 'value'))
+utils.guinneaPig(creditHigh);
 
-var debit = new Batch({
+var allDebits = new nach.Batch({
 	serviceClassCode: '225',
 	companyName: companyName,
 	standardEntryClassCode: 'PPD',
 	companyIdentification: companyIdentification,
 	companyEntryDescription: transactionDiscription,
-	companyDescriptiveDate: utils.computeBusinessDay(0).format('MMM D'),
-	effectiveEntryDate: new Date(utils.computeBusinessDay(0).format()),
-	originatingDFI: routingNumber 
+	companyDescriptiveDate: moment(utils.computeBusinessDay(2)).format('MMM D'),
+	effectiveEntryDate: utils.computeBusinessDay(2),
+	originatingDFI: routingNumber
 });
+utils.guinneaPig(creditHigh);
 
-creditLow.addEntry(creditTransaction);
-creditHigh.addEntry(creditTransaction);
-debit.addEntry(debitTransaction);
+allDebits.addEntry(debitTransaction);
+console.log('test.js: debit', _.pluck(allDebits.header, 'value'))
 
+//console.log('test.js', _.pluck(creditLow.header, 'value'))
 achFile.addBatch(creditLow);
+
+//console.log('test.js', _.pluck(creditHigh.header, 'value'))
 achFile.addBatch(creditHigh);
-achFile.addBatch(debit);
+//console.log(creditHigh._entries);
+
+//console.log('test.js', _.pluck(debit.header, 'value'))
+achFile.addBatch(allDebits);
 
 achFile.generateFile(function(fileString){
 	fs.writeFile('NACHA.txt', fileString, function(err) {
