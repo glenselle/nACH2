@@ -42,16 +42,14 @@ var debitTransaction = new nach.Entry({
 var creditLow = new nach.Batch({
 	serviceClassCode: '220',
 	companyName: companyName,
-	standardEntryClassCode: 'XIO',
+	standardEntryClassCode: 'WEB',
 	companyIdentification: companyIdentification,
 	companyEntryDescription: transactionDiscription,
 	companyDescriptiveDate: moment(utils.computeBusinessDay(1)).format('MMM D'),
 	effectiveEntryDate: utils.computeBusinessDay(1),
 	originatingDFI: routingNumber 
 });
-
-//creditLow.addEntry(creditTransaction);
-console.log('test.js: creditLow', _.pluck(creditLow.header, 'value'))
+creditLow.addEntry(creditTransaction);
 
 var creditHigh = new nach.Batch({
 	serviceClassCode: '220',
@@ -63,10 +61,7 @@ var creditHigh = new nach.Batch({
 	effectiveEntryDate: utils.computeBusinessDay(8),
 	originatingDFI: routingNumber
 });
-utils.guinneaPig(creditHigh);
-//creditHigh.addEntry(creditTransaction);
-console.log('test.js: creditHigh', _.pluck(creditHigh.header, 'value'))
-utils.guinneaPig(creditHigh);
+creditHigh.addEntry(creditTransaction);
 
 var allDebits = new nach.Batch({
 	serviceClassCode: '225',
@@ -78,19 +73,12 @@ var allDebits = new nach.Batch({
 	effectiveEntryDate: utils.computeBusinessDay(2),
 	originatingDFI: routingNumber
 });
-utils.guinneaPig(creditHigh);
-
+allDebits.addEntry(creditTransaction);
 allDebits.addEntry(debitTransaction);
-console.log('test.js: debit', _.pluck(allDebits.header, 'value'))
 
-//console.log('test.js', _.pluck(creditLow.header, 'value'))
+// Add the batches to the file
 achFile.addBatch(creditLow);
-
-//console.log('test.js', _.pluck(creditHigh.header, 'value'))
 achFile.addBatch(creditHigh);
-//console.log(creditHigh._entries);
-
-//console.log('test.js', _.pluck(debit.header, 'value'))
 achFile.addBatch(allDebits);
 
 achFile.generateFile(function(fileString){
