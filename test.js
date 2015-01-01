@@ -10,6 +10,7 @@ var companyIdentification = "983597258";
 var companyName = "Zipline Labs Inc";
 var transactionDiscription = 'Zip Transfer';
 	
+// Create the file
 var achFile = new nach.File({
 	immediateDestination: '281074114',
 	immediateOrigin: '123456789',
@@ -18,6 +19,7 @@ var achFile = new nach.File({
 	referenceCode: '#A000001',
 });
 
+// Create the entries
 var creditTransaction = new nach.Entry({
 	receivingDFI: '081000210',
 	DFIAccount: '12345678901234567',
@@ -38,7 +40,7 @@ var debitTransaction = new nach.Entry({
 	transactionCode:'27'
 });
 
-
+// Create the batches
 var creditLow = new nach.Batch({
 	serviceClassCode: '220',
 	companyName: companyName,
@@ -61,7 +63,7 @@ var creditHigh = new nach.Batch({
 	effectiveEntryDate: utils.computeBusinessDay(8),
 	originatingDFI: routingNumber
 });
-creditHigh.addEntry(creditTransaction);
+//creditHigh.addEntry(creditTransaction);
 
 var allDebits = new nach.Batch({
 	serviceClassCode: '225',
@@ -73,7 +75,6 @@ var allDebits = new nach.Batch({
 	effectiveEntryDate: utils.computeBusinessDay(2),
 	originatingDFI: routingNumber
 });
-allDebits.addEntry(creditTransaction);
 allDebits.addEntry(debitTransaction);
 
 // Add the batches to the file
