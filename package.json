@@ -19,8 +19,7 @@
     "moment": "^2.8.3",
     "chai": "^1.10.0",
     "async": "~0.9.0",
-    "lodash": "^2.4.1",
-    "fs": "0.0.2"
+    "lodash": "^2.4.1"
   },
   "devDependencies": {
     "mocha": "latest"
