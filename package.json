@@ -1,5 +1,5 @@
 {
-  "name": "nACH",
+  "name": "nach",
   "description": "nACH is a highly customizable Node.js module exposing a high & low-level API for generating ACH files for use within the ACH network",
   "version": "0.2.1",
   "author": "The Zipline team",

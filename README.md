@@ -1,7 +1,5 @@
 # nACH
 
-https://www.codeship.io/projects/c0c329a0-7661-0131-9ed3-2ed7dbf8d003/status
-
 nACH is a Node.js module exposing both a high & low-level API for generating ACH (Automated Clearing House) files for use within the ACH network. It's design makes it a high-performance, dependable and frustration-free solution for developers.
 
  Note: nACH does not bundle a bank agreement/partnership to upload ACH files to the network :) 
