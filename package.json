@@ -2,7 +2,6 @@
   "name": "nACH",
   "description": "nACH is a highly customizable Node.js module exposing a high & low-level API for generating ACH files for use within the ACH network",
   "version": "0.2.1",
-  "private": true,
   "author": "The Zipline team",
   "repository": {
     "type": "git",
