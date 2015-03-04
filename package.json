@@ -1,8 +1,13 @@
 {
   "name": "nach",
   "description": "nACH is a highly customizable Node.js module exposing a high & low-level API for generating ACH files for use within the ACH network",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": "The Zipline team",
+  "contributors":[{ 
+    "name" : "Yaw Joseph Etse", 
+    "email" : "yaw.etse@gmail.com", 
+    "url" : "http://about.me/yawjosephetse"
+  }],
   "repository": {
     "type": "git",
     "url": "https://github.com/zipline/nACH.git"
