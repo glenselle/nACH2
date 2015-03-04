@@ -41,9 +41,13 @@ describe('Utils', function(){
 			var year = moment().get('year').toString().slice(-2);
 			var month = (moment().get('month')+1).toString();
 
-			var date = year + month + day;
+			var date = moment().format('YYMMDD');//year + month + day;
+			// console.log('date',date);
+			// console.log('utils.dateNum',utils.dateNum);
+			// console.log("moment().get('year')",moment().get('year'));
+			// console.log("moment().format('YYMMDD')",moment().format('YYMMDD'));
 
-			 var dateNum = Date.prototype.yymmdd();
+			 var dateNum = utils.formatDate(new Date());//Date.prototype.yymmdd();
 
 			if(dateNum === date) { expect(function() { utils.dateNum }).not.to.throw('Dates match'); }	
 
@@ -60,7 +64,7 @@ describe('Utils', function(){
 			var minute = moment().minute().toString();
 			var time = hour + minute;
 
-			var utilsTime = Date.prototype.hhmm();
+			var utilsTime = utils.formatTime(new Date());//Date.prototype.hhmm();
 			
 			if(utilsTime === time) { expect(function() { utils.utilsTime }).not.to.throw('Times match'); }
 			else { expect(function() { utils.utilsTime }).to.throw('Times don\'t match.') }
