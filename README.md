@@ -1,5 +1,6 @@
 # nACH
 
+[![NPM Version](https://badge.fury.io/js/nach.svg)](http://badge.fury.io/js/nach)
 [![Build Status](https://travis-ci.org/zipline/nACH.svg?branch=master)](https://travis-ci.org/zipline/nACH)
 [![Dependencies](https://david-dm.org/zipline/nACH.svg)](https://david-dm.org/zipline/nACH)
 
