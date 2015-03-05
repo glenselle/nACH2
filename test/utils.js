@@ -46,7 +46,8 @@ describe('Utils', function(){
 
 			if(dateNum === date) { expect(function() { utils.formatDate }).not.to.throw('Dates match'); }	
 
-			else { expect(function() { utils.formatDate }).to.throw('Dates don\'t match');}	
+            // The formatDate() function never throws an error -- this test isn't accurate
+			//else { expect(function() { utils.formatDate }).to.throw('Dates don\'t match');}	
 
 		});
 	});
@@ -63,8 +64,9 @@ describe('Utils', function(){
 			var utilsTime = utils.formatTime(new Date());
 
 			if(utilsTime === time) { expect(function() { utils.formatTime }).not.to.throw('Times match'); }
-			else { expect(function() { utils.formatTime }).to.throw('Times don\'t match.') }
+			
+            // The formatTime() function never throws an error -- this test isn't accurate
+            //else { expect(function() { utils.formatTime }).to.throw('Times don\'t match.') }
 		});
 	});
-
 });
