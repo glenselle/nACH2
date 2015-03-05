@@ -1,5 +1,8 @@
 # nACH
 
+[![Build Status](https://travis-ci.org/zipline/nACH.svg?branch=master)](https://travis-ci.org/zipline/nACH)
+[![Dependencies](https://david-dm.org/zipline/nACH.svg)](https://david-dm.org/zipline/nACH.svg)
+
 nACH is a Node.js module exposing both a high & low-level API for generating ACH (Automated Clearing House) files for use within the ACH network. It's design makes it a high-performance, dependable and frustration-free solution for developers.
 
  Note: nACH does not bundle a bank agreement/partnership to upload ACH files to the network :) 
