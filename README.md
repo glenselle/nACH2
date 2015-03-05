@@ -46,7 +46,7 @@ Each line in an ACH file is always 94 bytes (or 94 characters) long, and the num
 ## File Anatomy
 Let's delve a little deeper into the anatomy of an ACH file. ACH files were originally created when punch-card computers were the "rave", so don't consider ACH files cutting-edge technology. They aren't. But they do provide a means by which to move money from one bank account to another--the entire purpose of the ACH network. As aforementioned, each ACH file has several sections known as "records". These are as follows:
 
-	  File header
+    File header
       First batch header
         First detail record
         ...
