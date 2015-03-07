@@ -90,3 +90,61 @@ To create a batch
     	effectiveEntryDate: utils.computeBusinessDay(8),
     	originatingDFI: '081000032'
     });
+
+To create an entry
+
+    var entry = new nach.Entry({
+    	receivingDFI: '081000210',
+    	DFIAccount: '5654221',
+    	amount: '175',
+    	idNumber: 'RAj##32b1kn1bb3',
+    	individualName: 'Luke Skywalker',
+    	discretionaryData: 'A1',
+    	transactionCode: '22'
+    });
+
+Entries are added to batches like so
+
+    batch.addEntry(entry);
+
+And batches are added to files much the same way
+
+    file.addBatch(batch);
+
+Finally to generate the file & write it to a text file
+
+    // Generate the file (result is a string with the file contents)
+    file.generateFile(function(result) {
+      
+      // Write result to a NACHA.txt file
+    	fs.writeFile('NACHA.txt', result, function(err) {
+    		if(err) console.log(err);
+        
+        // Log the output
+    		console.log(fileString);
+    	})
+    });
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2015 Zipline Labs, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
