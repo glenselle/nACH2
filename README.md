@@ -136,7 +136,7 @@ file.generateFile(function(result) {
         
         // Log the output
         console.log(fileString);
-    })
+    });
 });
 ```
 
