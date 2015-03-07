@@ -11,11 +11,13 @@ nACH is a Node.js module exposing both a high & low-level API for generating ACH
 ## Getting Started
 To intall nACH, use NPM:
 
-	npm install nach
+    $ npm install nach
 
 Then include the NPM module like so:
 
-	var nach = require('nach');
+```js
+var nach = require('nach');
+```
 
 Now you're ready to start creating ACH files.
 
@@ -69,61 +71,77 @@ As seen above, each file has one file header and one file control (similar to a 
 
 To create a file:
 
-    var file = new nach.File({
-    	immediateDestination: '081000032',
-    	immediateOrigin: '123456789',
-    	immediateDestinationName: 'Some Bank',
-    	immediateOriginName: 'Your Company Inc',
-    	referenceCode: '#A000001',
-    });
-    
+```js
+var file = new nach.File({
+    immediateDestination: '081000032',
+    immediateOrigin: '123456789',
+    immediateDestinationName: 'Some Bank',
+    immediateOriginName: 'Your Company Inc',
+    referenceCode: '#A000001',
+});
+```
 
 To create a batch
 
-    var batch = new nach.Batch({
-    	serviceClassCode: '220',
-    	companyName: 'Your Company Inc',
-    	standardEntryClassCode: 'WEB',
-    	companyIdentification: '123456789', 
-    	companyEntryDescription: 'Trans Description',
-    	companyDescriptiveDate: moment(utils.computeBusinessDay(8)).format('MMM D'),
-    	effectiveEntryDate: utils.computeBusinessDay(8),
-    	originatingDFI: '081000032'
-    });
+```js
+var batch = new nach.Batch({
+    serviceClassCode: '220',
+    companyName: 'Your Company Inc',
+    standardEntryClassCode: 'WEB',
+    companyIdentification: '123456789', 
+    companyEntryDescription: 'Trans Description',
+    companyDescriptiveDate: moment(utils.computeBusinessDay(8)).format('MMM D'),
+    effectiveEntryDate: utils.computeBusinessDay(8),
+    originatingDFI: '081000032'
+});
+```
 
 To create an entry
 
-    var entry = new nach.Entry({
-    	receivingDFI: '081000210',
-    	DFIAccount: '5654221',
-    	amount: '175',
-    	idNumber: 'RAj##32b1kn1bb3',
-    	individualName: 'Luke Skywalker',
-    	discretionaryData: 'A1',
-    	transactionCode: '22'
-    });
+```js
+var entry = new nach.Entry({
+    receivingDFI: '081000210',
+    DFIAccount: '5654221',
+    amount: '175',
+    idNumber: 'RAj##32b1kn1bb3',
+    individualName: 'Luke Skywalker',
+    discretionaryData: 'A1',
+    transactionCode: '22'
+});
+```
 
 Entries are added to batches like so
 
-    batch.addEntry(entry);
+```js
+batch.addEntry(entry);
+```
 
 And batches are added to files much the same way
 
-    file.addBatch(batch);
+```js
+file.addBatch(batch);
+```
 
 Finally to generate the file & write it to a text file
 
-    // Generate the file (result is a string with the file contents)
-    file.generateFile(function(result) {
+```js
+// Generate the file (result is a string with the file contents)
+file.generateFile(function(result) {
       
-      // Write result to a NACHA.txt file
-    	fs.writeFile('NACHA.txt', result, function(err) {
-    		if(err) console.log(err);
+    // Write result to a NACHA.txt file
+    fs.writeFile('NACHA.txt', result, function(err) {
+        if(err) console.log(err);
         
         // Log the output
-    		console.log(fileString);
-    	})
+        console.log(fileString);
     });
+});
+```
+
+## Tests
+Test coverage is currently a work in progress. To run:
+
+    $ npm test
 
 ## License
 
