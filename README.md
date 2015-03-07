@@ -64,3 +64,29 @@ Let's delve a little deeper into the anatomy of an ACH file. ACH files were orig
     File control
 
 As seen above, each file has one file header and one file control (similar to a footer or a closing html bracket). After the file header, the file can contain any number of batches and each batch may contain multiple entry details. While it may seem pointless to use different batches if all the entries could be inserted into one batch, there are various reasons one might choose to divide up entries into different batches. One such reason stems from the fact that only batch headers can specify when the entries within are to be deposited into the respective account. As a result, one might use batch headers to specify different deposit dates for a group of entries.
+
+## Usage
+
+To create a file:
+
+    var file = new nach.File({
+    	immediateDestination: '081000032',
+    	immediateOrigin: '123456789',
+    	immediateDestinationName: 'Some Bank',
+    	immediateOriginName: 'Your Company Inc',
+    	referenceCode: '#A000001',
+    });
+    
+
+To create a batch
+
+    var batch = new nach.Batch({
+    	serviceClassCode: '220',
+    	companyName: 'Your Company Inc',
+    	standardEntryClassCode: 'WEB',
+    	companyIdentification: '123456789', 
+    	companyEntryDescription: 'Trans Description',
+    	companyDescriptiveDate: moment(utils.computeBusinessDay(8)).format('MMM D'),
+    	effectiveEntryDate: utils.computeBusinessDay(8),
+    	originatingDFI: '081000032'
+    });
