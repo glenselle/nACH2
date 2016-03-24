@@ -90,8 +90,8 @@ var batch = new nach.Batch({
     standardEntryClassCode: 'WEB',
     companyIdentification: '123456789', 
     companyEntryDescription: 'Trans Description',
-    companyDescriptiveDate: moment(utils.computeBusinessDay(8)).format('MMM D'),
-    effectiveEntryDate: utils.computeBusinessDay(8),
+    companyDescriptiveDate: moment(nach.Utils.computeBusinessDay(8)).format('MMM D'),
+    effectiveEntryDate: nach.Utils.computeBusinessDay(8),
     originatingDFI: '081000032'
 });
 ```
