@@ -110,6 +110,15 @@ var entry = new nach.Entry({
 });
 ```
 
+To add one or more optional addenda records to an entry
+
+```js
+var addenda = new nach.EntryAddenda({
+    paymentRelatedInformation: "0123456789ABCDEFGJIJKLMNOPQRSTUVWXYXabcdefgjijklmnopqrstuvwxyx"
+});
+entry.addAdenda(addenda);
+```
+
 Entries are added to batches like so
 
 ```js
