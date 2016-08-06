@@ -1,12 +1,11 @@
 # nACH
 
 [![NPM Version](https://badge.fury.io/js/nach.svg)](http://badge.fury.io/js/nach)
-[![Build Status](https://travis-ci.org/zipline/nACH.svg?branch=master)](https://travis-ci.org/zipline/nACH)
 [![Dependencies](https://david-dm.org/zipline/nACH.svg)](https://david-dm.org/zipline/nACH)
 
 nACH is a Node.js module exposing both a high & low-level API for generating ACH (Automated Clearing House) files for use within the ACH network. It's design makes it a high-performance, dependable and frustration-free solution for developers.
 
- Note: nACH does not bundle a bank agreement/partnership to upload ACH files to the network :) 
+ Note: nACH does not bundle a bank agreement/partnership to upload ACH files to the network :)
 
 ## Getting Started
 To intall nACH, use NPM:
@@ -88,7 +87,7 @@ var batch = new nach.Batch({
     serviceClassCode: '220',
     companyName: 'Your Company Inc',
     standardEntryClassCode: 'WEB',
-    companyIdentification: '123456789', 
+    companyIdentification: '123456789',
     companyEntryDescription: 'Trans Description',
     companyDescriptiveDate: moment(nach.Utils.computeBusinessDay(8)).format('MMM D'),
     effectiveEntryDate: nach.Utils.computeBusinessDay(8),
@@ -136,11 +135,11 @@ Finally to generate the file & write it to a text file
 ```js
 // Generate the file (result is a string with the file contents)
 file.generateFile(function(result) {
-      
+
     // Write result to a NACHA.txt file
     fs.writeFile('NACHA.txt', result, function(err) {
         if(err) console.log(err);
-        
+
         // Log the output
         console.log(fileString);
     });
