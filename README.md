@@ -1,6 +1,7 @@
 # nACH
 
 [![NPM Version](https://badge.fury.io/js/nach.svg)](http://badge.fury.io/js/nach)
+[![Travis](https://img.shields.io/travis/glenselle/nACH.svg?maxAge=2592000)
 [![Dependencies](https://david-dm.org/zipline/nACH.svg)](https://david-dm.org/zipline/nACH)
 
 nACH is a Node.js module exposing both a high & low-level API for generating ACH (Automated Clearing House) files for use within the ACH network. It's design makes it a high-performance, dependable and frustration-free solution for developers.
