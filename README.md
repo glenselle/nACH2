@@ -1,6 +1,6 @@
 # nACH
 
-[![NPM Version](https://badge.fury.io/js/nach.svg)](http://badge.fury.io/js/nach)
+[![npm](https://img.shields.io/npm/v/nach2.svg?maxAge=2592000)](https://www.npmjs.com/package/nach2)
 [![Travis](https://img.shields.io/travis/glenselle/nACH.svg?maxAge=2592000)](https://travis-ci.org/glenselle/nACH)
 [![Dependencies](https://david-dm.org/zipline/nACH.svg)](https://david-dm.org/zipline/nACH)
 
