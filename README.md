@@ -156,7 +156,7 @@ Test coverage is currently a work in progress. To run:
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Zipline Labs, Inc.
+Copyright (c) 2016 Glen Selle
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
