@@ -1,4 +1,4 @@
-# nACH
+# nACH2
 
 [![npm](https://img.shields.io/npm/v/nach2.svg?maxAge=2592000)](https://www.npmjs.com/package/nach2)
 [![Travis](https://img.shields.io/travis/glenselle/nACH.svg?maxAge=2592000)](https://travis-ci.org/glenselle/nACH)
