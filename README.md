@@ -135,11 +135,12 @@ Finally to generate the file & write it to a text file
 
 ```js
 // Generate the file (result is a string with the file contents)
-file.generateFile(function(result) {
+file.generateFile(function(err, result) {
+    if(err) throw err;
 
     // Write result to a NACHA.txt file
     fs.writeFile('NACHA.txt', result, function(err) {
-        if(err) console.log(err);
+        if(err) throw err;
 
         // Log the output
         console.log(fileString);
