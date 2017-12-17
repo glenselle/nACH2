@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zipline/nACH.git"
+    "url": "https://github.com/glenselle/nACH2.git"
   },
   "engines": {
     "node": ">= 0.10.0"
@@ -35,7 +35,7 @@
   "dependencies": {
     "async": "^2.0.1",
     "lodash": "^4.14.1",
-    "moment": "^2.14.1"
+    "moment": "^2.20.0"
   },
   "devDependencies": {
     "mocha": "latest",
