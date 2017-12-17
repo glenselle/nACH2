@@ -11,12 +11,12 @@ nACH is a Node.js module exposing both a high & low-level API for generating ACH
 ## Getting Started
 To intall nACH, use NPM:
 
-    $ npm install nach
+    $ npm i nach2 --save-dev
 
 Then include the NPM module like so:
 
 ```js
-var nach = require('nach');
+const nach = require('nach2')
 ```
 
 Now you're ready to start creating ACH files.
