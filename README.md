@@ -116,7 +116,7 @@ To add one or more optional addenda records to an entry
 var addenda = new nach.EntryAddenda({
     paymentRelatedInformation: "0123456789ABCDEFGJIJKLMNOPQRSTUVWXYXabcdefgjijklmnopqrstuvwxyx"
 });
-entry.addAdenda(addenda);
+entry.addAddenda(addenda);
 ```
 
 Entries are added to batches like so
