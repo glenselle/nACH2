@@ -1,7 +1,7 @@
-# nACH2
+# nACH2-aimpoint
 
-[![npm](https://img.shields.io/npm/v/nach2.svg?maxAge=2592000)](https://www.npmjs.com/package/nach2)
-[![Travis](https://img.shields.io/travis/glenselle/nACH.svg?maxAge=2592000)](https://travis-ci.org/glenselle/nACH)
+[![npm](https://img.shields.io/npm/v/nach2-aimpoint.svg?maxAge=2592000)](https://www.npmjs.com/package/nach2-aimpoint)
+[![Travis](https://img.shields.io/travis/aimpoint/nACH.svg?maxAge=2592000)](https://travis-ci.com/aimpoint/nACH)
 [![Dependencies](https://david-dm.org/zipline/nACH.svg)](https://david-dm.org/zipline/nACH)
 
 nACH is a Node.js module exposing both a high & low-level API for generating ACH (Automated Clearing House) files for use within the ACH network. It's design makes it a high-performance, dependable and frustration-free solution for developers.
@@ -11,12 +11,12 @@ nACH is a Node.js module exposing both a high & low-level API for generating ACH
 ## Getting Started
 To intall nACH, use NPM:
 
-    $ npm i nach2 --save-dev
+    $ npm i nach2-aimpoint --save-dev
 
 Then include the NPM module like so:
 
 ```js
-const nach = require('nach2')
+const nach = require('nach2-aimpoint')
 ```
 
 Now you're ready to start creating ACH files.
@@ -156,7 +156,7 @@ Test coverage is currently a work in progress. To run:
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Glen Selle
+Copyright (c) 2022 EJ Legarda
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
