@@ -1,0 +1,17 @@
+name: Build
+
+on:
+  push: ~
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    uses: IndustriousOfficeLLC/ts-build-workflow/.github/workflows/workflow.yml@v1
+    permissions:
+      contents: read
+    secrets:
+      npm-token: ${{ secrets.NPM_READ_TOKEN }}
+      codecov-token: ${{ secrets.CODECOV_TOKEN }}

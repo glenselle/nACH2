@@ -1,22 +1,21 @@
-# nACH2
+# nacha
 
 [![npm](https://img.shields.io/npm/v/nach2.svg?maxAge=2592000)](https://www.npmjs.com/package/nach2)
 [![Travis](https://img.shields.io/travis/glenselle/nACH.svg?maxAge=2592000)](https://travis-ci.org/glenselle/nACH)
 [![Dependencies](https://david-dm.org/zipline/nACH.svg)](https://david-dm.org/zipline/nACH)
 
-nACH is a Node.js module exposing both a high & low-level API for generating ACH (Automated Clearing House) files for use within the ACH network. It's design makes it a high-performance, dependable and frustration-free solution for developers.
-
- Note: nACH does not bundle a bank agreement/partnership to upload ACH files to the network :)
+`nacha` is an in-house fork of [nACH2](https://github.com/glenselle/nACH2)
 
 ## Getting Started
-To intall nACH, use NPM:
 
-    $ npm i nach2 --save-dev
+To install nACH, use NPM:
+
+    $ npm i @industriousoffice/nacha
 
 Then include the NPM module like so:
 
 ```js
-const nach = require('nach2')
+const nach = require('nacha')
 ```
 
 Now you're ready to start creating ACH files.
@@ -151,27 +150,3 @@ file.generateFile(function(result) {
 Test coverage is currently a work in progress. To run:
 
     $ npm test
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Glen Selle
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
