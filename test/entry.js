@@ -57,4 +57,19 @@ describe('Entry', function(){
       });
     });
   });
+
+  describe("Create Entry without including optional fields", function() {
+    it('should create an entry even if optional fields are missing', function(){
+      var entry = new Entry({
+        receivingDFI: '081000210',
+        DFIAccount: '12345678901234567',
+        amount: '3521',
+        transactionCode: '22',
+        individualName: 'Glen Selle',
+      });
+      entry.generateString(function(string) {
+        console.log(string);
+      });
+    });
+  });
 });
