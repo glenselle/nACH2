@@ -1,45 +1,37 @@
 {
   "name": "nach2",
-  "description": "nACH is a highly customizable Node.js module exposing a high & low-level API for generating ACH files for use within the ACH network",
-  "version": "0.5.1",
+  "description": "nACH2 is a highly customizable Node.js module exposing a high & low-level API for generating ACH files for use within the ACH network",
+  "version": "1.0.0-next.0",
   "keywords": [
     "ACH",
     "file",
     "Automated Clearing House"
   ],
   "license": "MIT",
-  "contributors": [
-    {
-      "name": "Glen Selle",
-      "email": "glenselle@me.com"
-    },
-    {
-      "name": "Tom Horner",
-      "email": "tom.horner@zipline.co"
-    },
-    {
-      "name": "Yaw Joseph Etse",
-      "email": "yaw.etse@gmail.com",
-      "url": "http://about.me/yawjosephetse"
-    }
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zipline/nACH.git"
+    "url": "https://github.com/glenselle/nACH2.git"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">=14.x.x"
   },
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter spec --recursive"
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
+    "coverageDirectory": "coverage",
+    "testRegex": "((\\.|/*.)(test))\\.js?$"
   },
   "dependencies": {
     "async": "^2.0.1",
     "lodash": "^4.14.1",
-    "moment": "^2.14.1"
+    "luxon": "^3.7.1"
   },
   "devDependencies": {
-    "mocha": "latest",
-    "chai": "latest"
+    "jest": "^30.0.5"
   }
 }

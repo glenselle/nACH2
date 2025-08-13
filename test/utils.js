@@ -2,8 +2,7 @@ var chai     = require('chai'),
 	expect   = chai.expect,
 	moment   = require('moment');
 
-describe('Utils', function(){
-
+describe('utils.js', function(){
 	describe('pad', function() {
 		it('should add pad', function(){
 			var testS = "1991";
